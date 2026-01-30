@@ -1,11 +1,15 @@
 {
   "name": "Silo Viz",
   "organization": "Titus",
-  "description": "Custom Chart",
+  "description": "Custom Silo Chart",
+  "logoUrl": "https://raw.githubusercontent.com/titustemazisokhihulu-hub/silo-vizual/main/logo.png",
+  "packageUrl": "https://github.com/titustemazisokhihulu-hub/silo-vizual",
+  "supportUrl": "https://github.com/titustemazisokhihulu-hub/silo-vizual/issues",
   "components": [
     {
       "id": "siloViz",
       "label": "Silo Custom",
+      "description": "Custom Silo Chart",
       "resource": {
         "js": "index.js",
         "config": "index.json",
