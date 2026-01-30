@@ -1,52 +1,20 @@
-const dscc = require('@google/dscc');
-const d3 = window.d3;
+const dscc = window.dscc;
 
-const drawViz = (data) => {
-  d3.select('#viz').selectAll('*').remove();
+dscc.subscribeToData(draw, { transform: dscc.objectTransform });
 
-  const stock = data.tables.DEFAULT[0].stock;
-  const capacity = data.tables.DEFAULT[0].capacity;
+function draw(data) {
+  const container = document.getElementById("viz");
+  container.innerHTML = "";
 
-  const percent = Math.min(stock / capacity, 1);
+  const value = data.tables.DEFAULT[0]?.metric[0] || 0;
 
-  const width = 200;
-  const height = 300;
-  const fillHeight = height * percent;
+  const silo = document.createElement("div");
+  silo.className = "silo";
 
-  const svg = d3.select('#viz')
-    .append('svg')
-    .attr('width', width)
-    .attr('height', height + 40);
+  const fill = document.createElement("div");
+  fill.className = "fill";
+  fill.style.height = Math.min(value, 100) + "%";
 
-  // BODY SILO
-  svg.append('rect')
-    .attr('x', 40)
-    .attr('y', 20)
-    .attr('width', 120)
-    .attr('height', height)
-    .attr('rx', 20)
-    .attr('fill', 'none')
-    .attr('stroke', '#444')
-    .attr('stroke-width', 3);
-
-  // ISI SILO
-  svg.append('rect')
-    .attr('x', 40)
-    .attr('y', 20 + (height - fillHeight))
-    .attr('width', 120)
-    .attr('height', fillHeight)
-    .attr('rx', 20)
-    .attr('fill', '#4da6ff')
-    .attr('opacity', 0.7);
-
-  // TEKS
-  svg.append('text')
-    .attr('x', width / 2)
-    .attr('y', height / 2)
-    .attr('text-anchor', 'middle')
-    .attr('font-size', '20px')
-    .attr('font-weight', 'bold')
-    .text(stock.toLocaleString());
-};
-
-dscc.subscribeToData(drawViz, { transform: dscc.objectTransform });
+  silo.appendChild(fill);
+  container.appendChild(silo);
+}
