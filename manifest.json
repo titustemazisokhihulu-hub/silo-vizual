@@ -1,15 +1,11 @@
 {
-  "name": "Silo Visualization",
-  "organization": "Titus Custom",
-  "description": "Custom visualization for Silo data",
-  "logoUrl": "https://raw.githubusercontent.com/titustemazisokhihulu-hub/silo-vizual/main/logo.png",
-  "packageUrl": "https://github.com/titustemazisokhihulu-hub/silo-vizual",
-  "supportUrl": "https://github.com/titustemazisokhihulu-hub/silo-vizual/issues",
+  "name": "Silo Viz",
+  "organization": "Titus",
+  "description": "Custom Chart",
   "components": [
     {
       "id": "siloViz",
-      "label": "Silo Custom Chart",
-      "description": "A custom silo chart visualization",
+      "label": "Silo Custom",
       "resource": {
         "js": "index.js",
         "config": "index.json",
