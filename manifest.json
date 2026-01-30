@@ -1,12 +1,20 @@
 {
-  "name": "Silo Vizual",
-  "organization": "Titus",
-  "description": "Custom Silo Visualization for Looker Studio",
-  "description": "Custom Silo Visualization",
-  "visualization": {
-    "id": "silo_vizual",
-    "label": "Silo Chart",
-    "scriptUrl": "https://USERNAME.github.io/silo-vizual/viz.js",
-    "styleUrl": "https://USERNAME.github.io/silo-vizual/style.css"
-  }
+  "name": "Silo Visualization",
+  "organization": "Titus Custom",
+  "description": "Custom visualization for Silo data",
+  "logoUrl": "https://raw.githubusercontent.com/titustemazisokhihulu-hub/silo-vizual/main/logo.png",
+  "packageUrl": "https://github.com/titustemazisokhihulu-hub/silo-vizual",
+  "supportUrl": "https://github.com/titustemazisokhihulu-hub/silo-vizual/issues",
+  "components": [
+    {
+      "id": "siloViz",
+      "label": "Silo Custom Chart",
+      "description": "A custom silo chart visualization",
+      "resource": {
+        "js": "index.js",
+        "config": "index.json",
+        "css": "index.css"
+      }
+    }
+  ]
 }
