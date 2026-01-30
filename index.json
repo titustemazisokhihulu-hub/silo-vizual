@@ -2,19 +2,19 @@
   "data": [
     {
       "id": "concepts",
-      "label": "Data",
+      "label": "Data Pengguna",
       "elements": [
         {
           "id": "dimID",
-          "label": "Dimension",
+          "label": "Dimensi",
           "type": "DIMENSION",
-          "options": { "min": 1, "max": 20 }
+          "options": { "min": 1, "max": 1 }
         },
         {
           "id": "metricID",
-          "label": "Metric",
+          "label": "Metrik",
           "type": "METRIC",
-          "options": { "min": 1, "max": 20 }
+          "options": { "min": 1, "max": 1 }
         }
       ]
     }
