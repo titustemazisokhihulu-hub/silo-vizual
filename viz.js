@@ -1,21 +1,23 @@
+// LOAD LOOKER STUDIO SDK
+importScripts(
+  "https://www.gstatic.com/lookerstudio/js/viz.js"
+);
+
 const dscc = window.dscc;
 
-const config = {
+// REGISTER VISUALIZATION
+dscc.registerVisualization({
   data: {
     metrics: [
       {
         id: "value",
-        name: "Silo Value",
-        description: "Value to fill silo (0-100)"
+        name: "Value",
+        description: "Silo fill percentage (0-100)"
       }
     ],
     dimensions: []
-  },
-  style: {}
-};
-
-// REGISTER KE LOOKER
-dscc.registerVisualization(config);
+  }
+});
 
 // SUBSCRIBE DATA
 dscc.subscribeToData(draw, { transform: dscc.objectTransform });
