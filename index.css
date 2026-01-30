@@ -1,0 +1,13 @@
+body {
+  margin: 0;
+  padding: 10px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#myChart {
+  max-width: 100%;
+  max-height: 100%;
+}
