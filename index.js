@@ -1,40 +1,30 @@
-// Memanggil library Chart.js dari CDN
-const script = document.createElement('script');
-script.src = 'https://cdn.jsdelivr.net/npm/chart.js';
-document.head.appendChild(script);
+// Gunakan link CDN yang stabil untuk dscc
+const dsccUrl = "https://ajax.googleapis.com/ajax/libs/dscc/1.50.0/dscc.min.js";
 
-script.onload = () => {
-  const dscc = require('@google/dscc');
-
-  function drawViz(data) {
-    // Buat canvas untuk chart
-    document.body.innerHTML = '<div style="position: relative; height:90vh; width:90vw"><canvas id="myChart"></canvas></div>';
-    
-    const ctx = document.getElementById('myChart').getContext('2d');
-    
-    // Ambil data dari Looker Studio
-    const labels = data.tables.DEFAULT.map(row => row.dimID[0]);
-    const values = data.tables.DEFAULT.map(row => row.metricID[0]);
-
-    // Buat Chart
-    new Chart(ctx, {
-      type: 'bar', // Bisa diganti 'line', 'pie', dll
-      data: {
-        labels: labels,
-        datasets: [{
-          label: 'Data Silo',
-          data: values,
-          backgroundColor: data.style.barColor.value ? data.style.barColor.value.color : '#4285F4',
-          borderWidth: 1
-        }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false
-      }
-    });
-  }
-
-  // Langganan data dari Looker Studio
-  dscc.subscribeToData(drawViz, {transform: dscc.tableTransform});
+const loadScript = (url) => {
+  return new Promise((resolve) => {
+    const script = document.createElement('script');
+    script.src = url;
+    script.onload = resolve;
+    document.head.appendChild(script);
+  });
 };
+
+async function render() {
+  await loadScript(dsccUrl);
+  
+  const drawViz = (data) => {
+    // Membuat tampilan sederhana untuk tes
+    document.body.innerHTML = `
+      <div style="padding: 20px; background: #f4f4f4; border: 2px solid #4285F4; border-radius: 10px;">
+        <h2 style="color: #4285F4;">Silo Viz Berhasil!</h2>
+        <p>Data yang masuk: <strong>${data.tables.DEFAULT.length} baris</strong></p>
+        <pre>${JSON.stringify(data.tables.DEFAULT[0], null, 2)}</pre>
+      </div>
+    `;
+  };
+
+  window.dscc.subscribeToData(drawViz, {transform: window.dscc.tableTransform});
+}
+
+render();
