@@ -1,7 +1,7 @@
 {
   "name": "Silo Vizual",
   "organization": "Titus",
-  "description": "Custom Silo Visualization for Looker Studio",
+  "description": "Custom Silo Visualization",
   "visualization": {
     "id": "silo_vizual",
     "label": "Silo Chart",
