@@ -1,3 +1,8 @@
+// LOAD LOOKER STUDIO SDK
+importScripts(
+  "https://www.gstatic.com/lookerstudio/js/viz.js"
+)"
+  
 // dscc AKAN ADA SAAT DIJALANKAN DI LOOKER STUDIO
 const dscc = window.dscc;
 
@@ -8,6 +13,7 @@ dscc.registerVisualization({
       {
         id: "value",
         name: "Value",
+        description: "Silo fill percentage (0–100)"
         description: "Silo fill percentage (0–100)"
       }
     ],
@@ -39,3 +45,4 @@ function draw(data) {
   silo.appendChild(fill);
   container.appendChild(silo);
 }
+
