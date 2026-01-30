@@ -1,0 +1,35 @@
+{
+  "name": "Custom Silo Chart",
+  "organization": "Internal Dashboard",
+  "description": "Dynamic silo inventory visualization",
+  "logoUrl": "",
+  "supportUrl": "",
+  "privacyPolicyUrl": "",
+  "termsOfServiceUrl": "",
+  "components": [
+    {
+      "name": "silo",
+      "description": "Silo level visualization",
+      "resource": {
+        "js": "viz.js",
+        "css": ["style.css"]
+      },
+      "data": {
+        "fields": [
+          {
+            "id": "stock",
+            "name": "Stock Qty",
+            "type": "NUMBER",
+            "concept": "METRIC"
+          },
+          {
+            "id": "capacity",
+            "name": "Capacity",
+            "type": "NUMBER",
+            "concept": "METRIC"
+          }
+        ]
+      }
+    }
+  ]
+}
